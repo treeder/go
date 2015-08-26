@@ -12,5 +12,7 @@ case "$1" in
     fi
     docker run --rm -v $PWD:/app -w /app -v /var/run/docker.sock:/var/run/docker.sock treeder/go image $1
     ;;
+  *) echo "Invalid command"
+    exit 1 ;;
 esac
 exit 0
