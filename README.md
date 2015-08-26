@@ -4,8 +4,8 @@ to have anything install except Docker, you don't even need Go installed. See [t
 
 This image can perform the following functions:
 
-* vendor - vendors your dependencies into a /vendor directory.  
-* build - builds your program using the vendored dependencies.
+* vendor - vendors your dependencies into a /vendor directory.
+* build - builds your program using the vendored dependencies, with no import rewriting. 
 * remote - this one will produce a binary from a github repo. Equivalent to cloning, vendoring and building.
 * image - this will build and create a Docker image out of your program.
 * cross - cross compile your program into a variety of platforms. Based on [this](https://medium.com/iron-io-blog/how-to-cross-compile-go-programs-using-docker-beaa102a316d#95d9).
