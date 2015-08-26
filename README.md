@@ -97,6 +97,8 @@ It supports the following commands:
 * `wrapper.sh static`
 * `wrapper.sh vendor`
 * `wrapper.sh image`
+* `wrapper.sh run`
+* `wrapper.sh run-static`
 
 ## TODO:
 
