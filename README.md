@@ -86,6 +86,18 @@ docker run --rm -v $PWD:/app -w /app treeder/go static
 docker run --rm treeder/go version
 ```
 
+## Wrapper Script
+
+We've provided a [`wrapper.sh` script](./wrapper.sh) to make running each command
+more convenient. To use it, put it into your `$PATH` and start running it.
+It supports the following commands:
+
+* `wrapper.sh build`
+* `wrapper.sh cross`
+* `wrapper.sh static`
+* `wrapper.sh vendor`
+* `wrapper.sh image`
+
 ## TODO:
 
 ...
