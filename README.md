@@ -5,7 +5,7 @@ to have anything install except Docker, you don't even need Go installed. See [t
 This image can perform the following functions:
 
 * vendor - vendors your dependencies into a /vendor directory.
-* build - builds your program using the vendored dependencies, with no import rewriting. 
+* build - builds your program using the vendored dependencies, with no import rewriting.
 * remote - this one will produce a binary from a github repo. Equivalent to cloning, vendoring and building.
 * image - this will build and create a Docker image out of your program.
 * cross - cross compile your program into a variety of platforms. Based on [this](https://medium.com/iron-io-blog/how-to-cross-compile-go-programs-using-docker-beaa102a316d#95d9).
@@ -41,7 +41,7 @@ docker run --rm -v $PWD:/app -w /app -p 8080:8080 iron/base ./app
 This produces a binary given a remote git repo containing a Go program.
 
 ```sh
-docker run --rm -v $PWD:/app -w /app treeder/go remote https://github.com/treeder/go-docker.git
+docker run --rm -v $PWD:/app -w /app treeder/go remote https://github.com/treeder/hello-app.go.git
 ```
 
 You'll end up with a binary called `app` which you can run with the same command as above.
@@ -53,7 +53,7 @@ This will build a Docker image with your program inside it.
 The argument after image is `IMAGE_NAME:tag`. Also, note the extra mount here, that's required to talk to the Docker host.
 
 ```sh
-docker run --rm -v $PWD:/app -w /app -v /var/run/docker.sock:/var/run/docker.sock treeder/go image treeder/myapp:latest
+docker run --rm -v $PWD:/app -w /app -v /var/run/docker.sock:/var/run/docker.sock treeder/go image username/myapp:latest
 ```
 
 Boom, creates a small Docker image for you. Run `docker images` to check it out, should be about ~12MB total.
@@ -61,7 +61,7 @@ Boom, creates a small Docker image for you. Run `docker images` to check it out,
 Test your new image:
 
 ```sh
-docker run --rm -v $PWD:/app -w /app -p 8080:8080 treeder/myapp
+docker run --rm -v $PWD:/app -w /app -p 8080:8080 username/myapp
 ```
 
 ### Cross compile:
