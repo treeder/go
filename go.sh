@@ -21,7 +21,7 @@ fi
 wd=$PWD
 p=/go/src/x/y/z
 mkdir -p $p
-if [ `ls -A $wd` ]
+if [ "$(ls -A $wd)" ]
   then
     # only if files exist, errors otherwise
     cp -r * $p

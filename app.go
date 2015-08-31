@@ -9,10 +9,8 @@ import (
 )
 
 func main() {
-
 	r := mux.NewRouter()
 	r.HandleFunc("/", Hello)
-
 	http.Handle("/", r)
 	fmt.Println("Starting up on 8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
