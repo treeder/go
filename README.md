@@ -86,6 +86,27 @@ docker run --rm -v $PWD:/app -w /app treeder/go static
 docker run --rm treeder/go version
 ```
 
+## Wrapper Script
+
+We've provided a [`wrapper.sh` script](./wrapper.sh) to make running each command
+more convenient.
+
+To use it, download it and put it in your `$PATH`. Then, create an alias for it
+by pasting the following into your shell config file (e.g. `.bashrc`, `.zshrc`, etc...):
+
+`alias dgo='wrapper.sh'`
+
+Now you're ready to run the wrapper. It supports the following commands:
+
+* `dgo build`
+* `dgo cross`
+* `dgo static`
+* `dgo vendor`
+* `dgo image`
+* `dgo run`
+* `dgo run-static`
+
+
 ## TODO:
 
 ...
