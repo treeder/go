@@ -16,13 +16,13 @@ This image can perform the following functions:
 ### Vendor dependencies:
 
 ```sh
-docker run --rm -v $PWD:/app -w /app treeder/go vendor
+docker run --rm -v "$PWD":/app -w /app treeder/go vendor
 ```
 
 ### Build:
 
 ```sh
-docker run --rm -v $PWD:/app -w /app treeder/go build
+docker run --rm -v "$PWD":/app -w /app treeder/go build
 ```
 
 ### Run:
@@ -31,7 +31,7 @@ This is just a normal Docker run. I'm using iron/base here because it's a tiny i
 everything you need to run your Go binary on.
 
 ```sh
-docker run --rm -v $PWD:/app -w /app -p 8080:8080 iron/base ./app
+docker run --rm -v "$PWD":/app -w /app -p 8080:8080 iron/base ./app
 ```
 
 ## Advanced Commands
@@ -41,7 +41,7 @@ docker run --rm -v $PWD:/app -w /app -p 8080:8080 iron/base ./app
 This produces a binary given a remote git repo containing a Go program.
 
 ```sh
-docker run --rm -v $PWD:/app -w /app treeder/go remote https://github.com/treeder/hello-app.go.git
+docker run --rm -v "$PWD":/app -w /app treeder/go remote https://github.com/treeder/hello-app.go.git
 ```
 
 You'll end up with a binary called `app` which you can run with the same command as above.
@@ -53,7 +53,7 @@ This will build a Docker image with your program inside it.
 The argument after image is `IMAGE_NAME:tag`. Also, note the extra mount here, that's required to talk to the Docker host.
 
 ```sh
-docker run --rm -v $PWD:/app -w /app -v /var/run/docker.sock:/var/run/docker.sock treeder/go image username/myapp:latest
+docker run --rm -v "$PWD":/app -w /app -v /var/run/docker.sock:/var/run/docker.sock treeder/go image username/myapp:latest
 ```
 
 Boom, creates a small Docker image for you. Run `docker images` to check it out, should be about ~12MB total.
@@ -61,7 +61,7 @@ Boom, creates a small Docker image for you. Run `docker images` to check it out,
 Test your new image:
 
 ```sh
-docker run --rm -v $PWD:/app -w /app -p 8080:8080 username/myapp
+docker run --rm -v "$PWD":/app -w /app -p 8080:8080 username/myapp
 ```
 
 ### Cross compile:
@@ -69,7 +69,7 @@ docker run --rm -v $PWD:/app -w /app -p 8080:8080 username/myapp
 This uses a different image, treeder/go-cross, to do a cross compile.
 
 ```sh
-docker run --rm -v $PWD:/app -w /app treeder/go-cross cross
+docker run --rm -v "$PWD":/app -w /app treeder/go-cross cross
 ```
 
 ### Build static binary:
@@ -77,7 +77,7 @@ docker run --rm -v $PWD:/app -w /app treeder/go-cross cross
 This is great for making the [tiniest Docker image possible](http://www.iron.io/blog/2015/07/an-easier-way-to-create-tiny-golang-docker-images.html)
 
 ```sh
-docker run --rm -v $PWD:/app -w /app treeder/go static
+docker run --rm -v "$PWD":/app -w /app treeder/go static
 ```
 
 ### Check Go version:
