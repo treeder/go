@@ -7,5 +7,4 @@ ADD lib/* /scripts/lib/
 ADD app.go /app/app.go
 WORKDIR /app
 
-# Default is to update and install dependencies
 ENTRYPOINT ["sh", "/scripts/go.sh"]
