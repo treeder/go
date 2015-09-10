@@ -19,7 +19,12 @@ fi
 
 # echo $PWD
 wd=$PWD
-p=/go/src/x/y/z
+defSrcPath="x/y/z"
+if [ -z "$SRCPATH" ]; then
+    SRCPATH=$defSrcPath
+fi
+# echo "srcpath $SRCPATH ---"
+p=/go/src/$SRCPATH
 mkdir -p $p
 if [ "$(ls -A $wd)" ]
   then
@@ -29,7 +34,6 @@ fi
 cd $p
 # Add vendor to the GOPATH so get will pull it in the right spot
 export GOPATH=$p/vendor:/go
-# env
 
 # Pass in: $# MIN_ARGS
 validate () {
