@@ -16,16 +16,14 @@ This image can perform the following functions:
 ### Vendor dependencies:
 
 ```sh
-docker run --rm -v "$PWD":/app -w /app treeder/go vendor
+docker run --rm -it -v "$PWD":/app -w /app treeder/go vendor
 ```
 
-You may need to add more options if you are accessing any private git repos or have subdirectory imports:
+You may need to add more options if you have subdirectory imports:
 
 ```sh
-docker run --rm -v "$PWD":/app -v $HOME/root -e "SRCPATH=github.com/username/reponame" -w /app treeder/go vendor
+docker run --rm -it -v "$PWD":/app -w /app -e "SRCPATH=github.com/username/reponame" treeder/go vendor
 ```
-
-The `-v $HOME/root` is there to use your git credentials if you need to pull from any private repos. Can be omitted if it's all public.
 
 The SRCPATH should match your local import statements. Only required if you have subdirectories in the current repository
 that you are using in imports.

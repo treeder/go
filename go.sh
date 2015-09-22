@@ -10,11 +10,25 @@
 set -e
 
 cmd="$1"
-# echo "Args: $*"
+# echo "Go Args: $*"
 if [ "$#" -lt 1 ]
 then
     echo "No command provided."
     exit 1
+fi
+
+if [ -n "$GITCRED" ]; then
+    echo "creds defined"
+    echo $GITCRED >> ~/.git-credentials
+    ls -al ~
+    cat ~/.git-credentials
+fi
+
+if [ -n "$GITCONFIG" ]; then
+    echo "gitconfig defined"
+    echo $GITCONFIG >> ~/.gitconfig
+    ls -al ~
+    cat ~/.gitconfig
 fi
 
 # echo $PWD
@@ -26,6 +40,7 @@ fi
 # echo "srcpath $SRCPATH ---"
 p=/go/src/$SRCPATH
 mkdir -p $p
+# ls -al
 if [ "$(ls -A $wd)" ]
   then
     # only if files exist, errors otherwise
