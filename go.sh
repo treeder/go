@@ -78,6 +78,10 @@ case "$1" in
   build)  echo  "Building..."
       build "-o app" $wd
       ;;
+  fmt)  echo  "Formatting..."
+      cd $wd
+      go fmt
+      ;;
   cross)  echo  "Cross compiling..."
       for GOOS in darwin linux windows; do
         for GOARCH in 386 amd64; do

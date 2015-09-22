@@ -43,6 +43,12 @@ everything you need to run your Go binary on.
 docker run --rm -v "$PWD":/app -w /app -p 8080:8080 iron/base ./app
 ```
 
+### Format:
+
+```sh
+docker run --rm -v "$PWD":/app -w /app treeder/go fmt
+```
+
 ## Advanced Commands
 
 ### Build a remote git repo:
