@@ -2,26 +2,26 @@
 set -eo pipefail; [[ $TRACE ]] && set -x
 
 case "$1" in
-  build) 
-    docker run --rm -v "$PWD":/app -w /app treeder/go build 
+  build)
+    docker run --rm -v "$PWD":/app -w /app treeder/go build
     ;;
-  cross) 
-    docker run --rm -v "$PWD":/app -w /app treeder/go cross 
+  cross)
+    docker run --rm -v "$PWD":/app -w /app treeder/go cross
     ;;
-  static) 
-    docker run --rm -v "$PWD":/app -w /app treeder/go static 
+  static)
+    docker run --rm -v "$PWD":/app -w /app treeder/go static
     ;;
-  vendor) 
-    docker run --rm -v "$PWD":/app -w /app treeder/go vendor 
+  vendor)
+    docker run --rm -v "$PWD":/app -w /app treeder/go vendor
     ;;
   fmt)
     docker run --rm -v "$PWD":/app -w /app treeder/go fmt
     ;;
-  run) 
-    docker run --rm -v "$PWD":/app -w /app -p 8080:8080 iron/base ./app 
+  run)
+    docker run --rm -v "$PWD":/app -w /app -p 8080:8080 iron/base ./app
     ;;
-  run-static) 
-    docker run --rm -v "$PWD":/app -w /app -p 8080:8080 iron/base ./static 
+  run-static)
+    docker run --rm -v "$PWD":/app -w /app -p 8080:8080 iron/base ./static
     ;;
   image)
     if [[ -z "$2" ]]; then
@@ -30,9 +30,9 @@ case "$1" in
     fi
     docker run --rm -v "$PWD":/app -w /app -v /var/run/docker.sock:/var/run/docker.sock treeder/go image $1
     ;;
-  *) 
+  *)
     echo "Invalid command"
-    exit 1 
+    exit 1
     ;;
 esac
 exit 0
