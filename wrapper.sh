@@ -24,7 +24,7 @@ case "$1" in
     docker run --rm -v $PWD:/app -w /app -p 8080:8080 iron/base ./static 
     ;;
   image)
-    if [ -z "$2" ]; then
+    if [[ -z "$2" ]]; then
       echo "Missing image name"
       exit 1
     fi
