@@ -19,7 +19,7 @@ case "$1" in
   run-static) 
     docker run --rm -v $PWD:/app -w /app -p 8080:8080 iron/base ./static 
     ;;
-  image) \
+  image)
     if [ -z "$2" ]; then
       echo "Missing image name"
       exit 1
