@@ -25,11 +25,12 @@ main() {
       docker run --rm -v "$PWD":/app -w /app -p 8080:8080 iron/base ./static
       ;;
     image)
-      if [[ -z "$2" ]]; then
+      local image="$2"
+      if [[ -z "$image" ]]; then
         echo "Missing image name"
         exit 1
       fi
-      docker run --rm -v "$PWD":/app -w /app -v /var/run/docker.sock:/var/run/docker.sock treeder/go image $1
+      docker run --rm -v "$PWD":/app -w /app -v /var/run/docker.sock:/var/run/docker.sock treeder/go image "$image"
       ;;
     *)
       echo "Invalid command"
