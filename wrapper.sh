@@ -14,6 +14,9 @@ case "$1" in
   vendor) 
     docker run --rm -v $PWD:/app -w /app treeder/go vendor 
     ;;
+  fmt)
+    docker run --rm -v $PWD:/app -w /app treeder/go fmt
+    ;;
   run) 
     docker run --rm -v $PWD:/app -w /app -p 8080:8080 iron/base ./app 
     ;;
