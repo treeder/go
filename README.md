@@ -1,3 +1,4 @@
+## MOVED: I've created a new follow on project for Go and other languages here: https://github.com/treeder/dj
 
 This is a Docker image to help you develop in Go (golang). The great thing is you don't need
 to have anything installed except Docker, you don't even need Go installed. See [this post about developing with Docker](https://medium.com/iron-io-blog/why-and-how-to-use-docker-for-development-a156c1de3b24).
